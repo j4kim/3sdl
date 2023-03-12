@@ -1,0 +1,18 @@
+export default [
+  "                             ",
+  "    XX              X   X    ",
+  "   X  X             X   X    ",
+  "   X  X             X   X    ",
+  "      X             X   X    ",
+  "      X             X   X    ",
+  "      X    XX     XXX   X    ",
+  "     X    X  X   X  X   X    ",
+  "      X   X  X   X  X   X    ",
+  "      X   X      X  X   X    ",
+  "      X    XX    X  X   X    ",
+  "      X      X   X  X   X    ",
+  "   X  X   X  X   X  X   X    ",
+  "   X  X   X  X   X  X   X    ",
+  "    XX     XX     XX X   X   ",
+  "                             ",
+]

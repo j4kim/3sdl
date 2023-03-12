@@ -1,7 +1,9 @@
 <script>
-  //
+  import map from "./map.js";
 </script>
 
 <main>
-  <h1>hi</h1>
+  {#each map as row}
+    <pre>{row}</pre>
+  {/each}
 </main>
