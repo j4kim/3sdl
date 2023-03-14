@@ -7,3 +7,12 @@
     <pre>{row}</pre>
   {/each}
 </main>
+
+<style>
+  main {
+    font-size: 5vmin;
+  }
+  pre {
+    margin: 0;
+  }
+</style>
