@@ -3,9 +3,19 @@
 </script>
 
 <main>
-  {#each map as row}
-    <pre>{row}</pre>
-  {/each}
+  <svg>
+    {#each map as row, y}
+      {#each row as cell, x}
+        <rect
+          x={10 * x}
+          y={10 * y}
+          width="10"
+          height={10}
+          fill={cell === "X" ? "red" : ""}
+        />
+      {/each}
+    {/each}
+  </svg>
 </main>
 
 <style>
