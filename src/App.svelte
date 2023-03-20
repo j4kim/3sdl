@@ -16,7 +16,7 @@
           y={px * y}
           width={px}
           height={px}
-          fill={cell === "X" ? "red" : ""}
+          fill={cell === "X" ? "white" : ""}
         />
       {/each}
     {/each}
