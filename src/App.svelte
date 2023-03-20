@@ -9,10 +9,7 @@
 </main>
 
 <style>
-  main {
-    font-size: 5vmin;
-  }
-  pre {
+  :global(body) {
     margin: 0;
   }
 </style>
