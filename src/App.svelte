@@ -10,15 +10,17 @@
 <main>
   <svg width={innerWidth} height={innerHeight}>
     {#each map as row, y}
-      {#each row as cell, x}
-        <rect
-          x={px * x}
-          y={px * y}
-          width={px}
-          height={px}
-          fill={cell === "X" ? "white" : ""}
-        />
-      {/each}
+      <g>
+        {#each row as cell, x}
+          <rect
+            x={px * x}
+            y={px * y}
+            width={px}
+            height={px}
+            fill={cell === "X" ? "white" : ""}
+          />
+        {/each}
+      </g>
     {/each}
   </svg>
 </main>
