@@ -17,6 +17,7 @@
 
   let mouseDown = false;
   let rectId;
+  let newValue;
 
   function draw(target) {
     if (target.nodeName !== "rect") return;
@@ -24,7 +25,9 @@
     const { x, y } = target.dataset;
     const rowsClone = [...rows];
     const rowClone = [...rowsClone[y]];
-    const newValue = rowClone[x] === "X" ? " " : "X";
+    if (!newValue) {
+      newValue = rowClone[x] === "X" ? " " : "X";
+    }
     rowClone[x] = newValue;
     rowsClone[y] = rowClone;
     redrawnMap = rowsClone;
