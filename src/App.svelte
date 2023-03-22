@@ -34,7 +34,7 @@
 </script>
 
 <main>
-  <svg {width} {height}>
+  <svg {width} {height} fill="rgb(31, 38, 49)">
     {#each allRows as row, y}
       <Row {row} {y} {px} />
     {/each}
@@ -46,6 +46,7 @@
 <style>
   :global(body) {
     margin: 0;
+    background-color: rgb(31, 38, 49);
   }
   main {
     height: 100vh;
