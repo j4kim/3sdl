@@ -7,7 +7,7 @@
 
   $: mapRows = map.length;
   $: mapCols = map[0].length;
-  $: defaultRow = " ".repeat(mapCols);
+  $: defaultRow = " ".repeat(mapCols).split("");
 
   $: px = +(width / mapCols).toFixed(2);
 
@@ -22,6 +22,8 @@
   $: rowsBefore = Math.round(additionalRows / 2);
 
   $: rowsAfter = additionalRows - rowsBefore;
+
+  export let rows;
 
   $: rows = [
     ...(rowsBefore > 0 ? Array(rowsBefore).fill(defaultRow) : []),
