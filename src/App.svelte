@@ -1,5 +1,6 @@
 <script>
   import map from "./map.js";
+  import Row from "./Row.svelte";
 
   let innerWidth = 0;
   let innerHeight = 0;
@@ -10,17 +11,7 @@
 <main>
   <svg width={innerWidth} height={innerHeight}>
     {#each map as row, y}
-      <g>
-        {#each row as cell, x}
-          <rect
-            x={px * x}
-            y={px * y}
-            width={px}
-            height={px}
-            fill={cell === "X" ? "white" : ""}
-          />
-        {/each}
-      </g>
+      <Row {row} {y} {px} />
     {/each}
   </svg>
 </main>
