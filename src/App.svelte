@@ -2,16 +2,29 @@
   import map from "./map.js";
   import Row from "./Row.svelte";
 
-  let innerWidth = 0;
-  let innerHeight = 0;
+  let innerWidth = 100;
+  let innerHeight = 100;
 
-  $: px = innerWidth / map[0].length;
+  let mapRows = map.length;
+  let mapCols = map[0].length;
+
+  $: px = innerWidth / mapCols;
+
+  $: mapHeight = px * mapRows;
+
+  $: remainingHeight = innerHeight - mapHeight;
+
+  $: additionalRows = Math.floor(remainingHeight / px);
+
+  $: additionalRowsUp = Math.round(additionalRows / 2);
+
+  $: additionalRowsDown = additionalRows - additionalRowsUp;
 </script>
 
 <main>
   <svg width={innerWidth} height={innerHeight}>
     {#each map as row, y}
-      <Row {row} {y} {px} />
+      <Row {row} y={y + additionalRowsUp} {px} />
     {/each}
   </svg>
 </main>
