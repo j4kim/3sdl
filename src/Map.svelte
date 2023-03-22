@@ -30,16 +30,24 @@
     ...map,
     ...(rowsAfter > 0 ? Array(rowsAfter).fill(defaultRow) : []),
   ];
+
+  function save() {
+    localStorage.saved = JSON.stringify(rows);
+  }
 </script>
 
 <svg {width} {height} fill="rgb(31, 38, 49)">
   {#each rows as row, y}
     <Row {row} {y} {px} />
   {/each}
+  <text y={height} dx="10" dy="-10" on:click={save} on:keydown={save}>📸</text>
 </svg>
 
 <style>
   svg {
     display: block;
+  }
+  text {
+    cursor: pointer;
   }
 </style>
