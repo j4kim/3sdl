@@ -1,5 +1,5 @@
 <script>
-  import { wide, narrow } from "./map.js";
+  import { wide, narrow } from "./maps.js";
   import Map from "./Map.svelte";
 
   let clientWidth;
