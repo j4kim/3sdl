@@ -13,15 +13,15 @@ export const wide = [
 ];
 
 export const narrow = [
-  "    XXX    ",
-  "   X   X   ",
-  "       X   ",
-  "       X   ",
-  "       X   ",
-  "     XX    ",
-  "       X   ",
-  "       X   ",
-  "       X   ",
-  "   X   X   ",
-  "    XXX    ",
+  "        XXX        ",
+  "       X   X       ",
+  "           X       ",
+  "           X       ",
+  "           X       ",
+  "         XX        ",
+  "           X       ",
+  "           X       ",
+  "           X       ",
+  "       X   X       ",
+  "        XXX        ",
 ];
