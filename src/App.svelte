@@ -15,9 +15,13 @@
   $: map =
     redrawnMap ?? (ratio > 1 ? wide : narrow).map((row) => row.split(""));
 
-  function handleClick({ target }) {
+  let mouseDown = false;
+  let rectId;
+
+  function draw(target) {
+    if (target.nodeName !== "rect") return;
+    rectId = target.id;
     const { x, y } = target.dataset;
-    if (x === undefined || y === undefined) return;
     const rowsClone = [...rows];
     const rowClone = [...rowsClone[y]];
     const newValue = rowClone[x] === "X" ? " " : "X";
@@ -25,10 +29,28 @@
     rowsClone[y] = rowClone;
     redrawnMap = rowsClone;
   }
+
+  function handleMouseDown({ target }) {
+    mouseDown = true;
+    draw(target);
+  }
+
+  function handleMouseMove({ target }) {
+    if (!mouseDown) return;
+    if (rectId === target.id) return;
+    draw(target);
+  }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<main bind:clientWidth bind:clientHeight on:click={handleClick}>
+<main
+  bind:clientWidth
+  bind:clientHeight
+  on:mousedown={handleMouseDown}
+  on:mousemove={handleMouseMove}
+  on:mouseup={(e) => (mouseDown = false)}
+  on:mouseleave={(e) => (mouseDown = false)}
+>
   {#if clientHeight}
     <Map {map} {width} {maxHeight} bind:rows />
   {/if}

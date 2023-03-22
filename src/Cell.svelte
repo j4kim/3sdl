@@ -6,6 +6,7 @@
 </script>
 
 <rect
+  id="rect-{x}-{y}"
   data-x={x}
   data-y={y}
   x={(px * x).toFixed(2)}
