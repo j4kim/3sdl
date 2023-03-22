@@ -8,13 +8,18 @@
   let mapRows = map.length;
   let mapCols = map[0].length;
 
-  $: px = innerWidth / mapCols;
+  $: width = 0.98 * innerWidth;
+  $: maxHeight = 0.99 * innerHeight;
+
+  $: px = width / mapCols;
 
   $: mapHeight = px * mapRows;
 
-  $: remainingHeight = innerHeight - mapHeight;
+  $: remainingHeight = maxHeight - mapHeight;
 
   $: additionalRows = Math.floor(remainingHeight / px);
+
+  $: height = mapHeight + additionalRows * px;
 
   $: rowsBefore = Math.round(additionalRows / 2);
 
@@ -22,7 +27,7 @@
 </script>
 
 <main>
-  <svg width={innerWidth} height={innerHeight}>
+  <svg {width} {height}>
     {#each { length: rowsBefore } as _, y}
       <Row row={map[0]} {y} {px} />
     {/each}
@@ -40,6 +45,12 @@
 <style>
   :global(body) {
     margin: 0;
+  }
+  main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   svg {
     display: block;
