@@ -43,6 +43,12 @@
     if (rectId === target.id) return;
     draw(target);
   }
+
+  function reset() {
+    mouseDown = false;
+    rectId = null;
+    newValue = null;
+  }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -51,8 +57,7 @@
   bind:clientHeight
   on:mousedown={handleMouseDown}
   on:mousemove={handleMouseMove}
-  on:mouseup={(e) => (mouseDown = false)}
-  on:mouseleave={(e) => (mouseDown = false)}
+  on:mouseup={reset}
 >
   {#if clientHeight}
     <Map {map} {width} {maxHeight} bind:rows />
