@@ -20,7 +20,7 @@
 
   $: additionalRows = Math.floor(remainingHeight / px);
 
-  $: height = mapHeight + additionalRows * px;
+  $: height = Math.max(mapHeight + additionalRows * px, mapHeight);
 
   $: rowsBefore = Math.round(additionalRows / 2);
 
@@ -51,6 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
   svg {
     display: block;
