@@ -2,15 +2,15 @@
   import map from "./map.js";
   import Row from "./Row.svelte";
 
-  let innerWidth = 100;
-  let innerHeight = 100;
+  let clientWidth = 100;
+  let clientHeight = 100;
 
   const mapRows = map.length;
   const mapCols = map[0].length;
   const defaultRow = " ".repeat(mapCols);
 
-  $: width = 0.98 * innerWidth;
-  $: maxHeight = 0.99 * innerHeight;
+  $: width = 0.98 * clientWidth;
+  $: maxHeight = 0.99 * clientHeight;
 
   $: px = +(width / mapCols).toFixed(2);
 
@@ -33,7 +33,7 @@
   ];
 </script>
 
-<main>
+<main bind:clientWidth bind:clientHeight>
   <svg {width} {height} fill="rgb(31, 38, 49)">
     {#each allRows as row, y}
       <Row {row} {y} {px} />
@@ -41,15 +41,13 @@
   </svg>
 </main>
 
-<svelte:window bind:innerWidth bind:innerHeight />
-
 <style>
   :global(body) {
     margin: 0;
     background-color: rgb(31, 38, 49);
   }
   main {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
