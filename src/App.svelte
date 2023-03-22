@@ -16,15 +16,21 @@
 
   $: additionalRows = Math.floor(remainingHeight / px);
 
-  $: additionalRowsUp = Math.round(additionalRows / 2);
+  $: rowsBefore = Math.round(additionalRows / 2);
 
-  $: additionalRowsDown = additionalRows - additionalRowsUp;
+  $: rowsAfter = additionalRows - rowsBefore;
 </script>
 
 <main>
   <svg width={innerWidth} height={innerHeight}>
+    {#each { length: rowsBefore } as _, y}
+      <Row row={map[0]} {y} {px} />
+    {/each}
     {#each map as row, y}
-      <Row {row} y={y + additionalRowsUp} {px} />
+      <Row {row} y={y + rowsBefore} {px} />
+    {/each}
+    {#each { length: rowsAfter } as _, y}
+      <Row row={map[0]} y={rowsBefore + mapRows + y} {px} />
     {/each}
   </svg>
 </main>
