@@ -1,5 +1,5 @@
 <script>
-  import map from "./map.js";
+  import { wide, narrow } from "./map.js";
   import Map from "./Map.svelte";
 
   let clientWidth;
@@ -7,6 +7,9 @@
 
   $: width = 0.98 * clientWidth;
   $: maxHeight = 0.99 * clientHeight;
+
+  $: ratio = width / maxHeight;
+  $: map = ratio > 1 ? wide : narrow;
 </script>
 
 <main bind:clientWidth bind:clientHeight>
