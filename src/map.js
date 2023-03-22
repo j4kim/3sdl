@@ -1,5 +1,4 @@
 export default [
-  "                              ",
   "    XXX              X   X    ",
   "   X   X             X   X    ",
   "   X   X             X   X    ",
@@ -14,5 +13,4 @@ export default [
   "   X   X  X   X  X   X   X    ",
   "   X   X  X   X  X   X   X    ",
   "    XXX    XXX    XXX X   X   ",
-  "                              ",
 ];

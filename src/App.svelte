@@ -5,8 +5,9 @@
   let innerWidth = 100;
   let innerHeight = 100;
 
-  let mapRows = map.length;
-  let mapCols = map[0].length;
+  const mapRows = map.length;
+  const mapCols = map[0].length;
+  const defaultRow = " ".repeat(mapCols);
 
   $: width = 0.98 * innerWidth;
   $: maxHeight = 0.99 * innerHeight;
@@ -24,18 +25,18 @@
   $: rowsBefore = Math.round(additionalRows / 2);
 
   $: rowsAfter = additionalRows - rowsBefore;
+
+  $: allRows = [
+    ...(rowsBefore > 0 ? Array(rowsBefore).fill(defaultRow) : []),
+    ...map,
+    ...(rowsAfter > 0 ? Array(rowsAfter).fill(defaultRow) : []),
+  ];
 </script>
 
 <main>
   <svg {width} {height}>
-    {#each { length: rowsBefore } as _, y}
-      <Row row={map[0]} {y} {px} />
-    {/each}
-    {#each map as row, y}
-      <Row {row} y={y + rowsBefore} {px} />
-    {/each}
-    {#each { length: rowsAfter } as _, y}
-      <Row row={map[0]} y={rowsBefore + mapRows + y} {px} />
+    {#each allRows as row, y}
+      <Row {row} {y} {px} />
     {/each}
   </svg>
 </main>
