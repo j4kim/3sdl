@@ -41,4 +41,7 @@
   :global(body) {
     margin: 0;
   }
+  svg {
+    display: block;
+  }
 </style>
