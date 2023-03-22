@@ -8,10 +8,10 @@
   <rect
     data-x={x}
     data-y={y}
-    x={(px * x).toFixed(2)}
-    y={(px * y).toFixed(2)}
-    width={px.toFixed(2)}
-    height={px.toFixed(2)}
+    x={px * x}
+    y={px * y}
+    width={px}
+    height={px}
     fill={cell === "X" ? "white" : ""}
   />
 {/each}

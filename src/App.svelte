@@ -11,7 +11,7 @@
   $: width = 0.98 * innerWidth;
   $: maxHeight = 0.99 * innerHeight;
 
-  $: px = width / mapCols;
+  $: px = +(width / mapCols).toFixed(2);
 
   $: mapHeight = px * mapRows;
 
