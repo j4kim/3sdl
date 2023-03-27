@@ -19,10 +19,7 @@
   let rectId;
   let newValue;
 
-  function draw(target) {
-    if (target.nodeName !== "rect") return;
-    rectId = target.id;
-    const { x, y } = target.dataset;
+  function toggle(x, y) {
     const rowsClone = [...rows];
     const rowClone = [...rowsClone[y]];
     if (!newValue) {
@@ -33,15 +30,22 @@
     redrawnMap = rowsClone;
   }
 
+  function toggleRect(target) {
+    if (target.nodeName !== "rect") return;
+    rectId = target.id;
+    const { x, y } = target.dataset;
+    toggle(x, y);
+  }
+
   function handleMouseDown({ target }) {
     mouseDown = true;
-    draw(target);
+    toggleRect(target);
   }
 
   function handleMouseMove({ target }) {
     if (!mouseDown) return;
     if (rectId === target.id) return;
-    draw(target);
+    toggleRect(target);
   }
 
   function reset() {
