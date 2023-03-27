@@ -53,6 +53,16 @@
     rectId = null;
     newValue = null;
   }
+
+  function handleTouchStart({ target }) {
+    toggleRect(target);
+  }
+
+  function handleTouchMove(e) {
+    const { pageX, pageY } = e.changedTouches[0];
+    const rect = document.elementFromPoint(pageX, pageY);
+    toggleRect(rect);
+  }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -62,6 +72,9 @@
   on:mousedown={handleMouseDown}
   on:mousemove={handleMouseMove}
   on:mouseup={reset}
+  on:touchstart|preventDefault={handleTouchStart}
+  on:touchmove={handleTouchMove}
+  on:touchend={reset}
 >
   {#if clientHeight}
     <Map {map} {width} {maxHeight} bind:rows />
