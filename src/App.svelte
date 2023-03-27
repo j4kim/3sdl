@@ -61,7 +61,7 @@
   function handleTouchMove(e) {
     const { pageX, pageY } = e.changedTouches[0];
     const rect = document.elementFromPoint(pageX, pageY);
-    toggleRect(rect);
+    if (rect) toggleRect(rect);
   }
 </script>
 
