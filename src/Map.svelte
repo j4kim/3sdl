@@ -36,7 +36,12 @@
   }
 </script>
 
-<svg {width} {height} fill="rgb(31, 38, 49)">
+<svg
+  {width}
+  {height}
+  fill="rgb(31, 38, 49)"
+  style="--cols:{mapCols}; --rows:{mapRows}"
+>
   {#each rows as row, y}
     <Row {row} {y} {px} />
   {/each}
