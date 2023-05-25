@@ -1,6 +1,7 @@
 <script>
   import { wide, narrow } from "./maps.js";
   import Map from "./Map.svelte";
+  import Editor from "./Editor.svelte";
 
   let clientWidth;
   let clientHeight;
@@ -80,6 +81,8 @@
     <Map {map} {width} {maxHeight} bind:rows />
   {/if}
 </main>
+
+<Editor/>
 
 <style>
   :global(body) {
