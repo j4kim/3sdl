@@ -17,7 +17,17 @@
 
     ctx.fillText("3sdl", 1, 9);
 
-    console.log(ctx.getImageData(0, 0, 1, 1));
+    ctx.fillStyle = "yellow";
+    for (let x = 0; x < 36; x++) {
+      for (let y = 0; y < 9; y++) {
+        const data = ctx
+          .getImageData(5 + x * 10, 5 + y * 10, 1, 1)
+          .data.join(",");
+        if (data === "0,0,0,255") {
+          ctx.fillRect(x, y, 1, 1);
+        }
+      }
+    }
   });
 </script>
 
